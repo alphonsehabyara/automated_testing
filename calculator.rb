@@ -25,6 +25,19 @@ class Calculator
   def power(number, exponent)
     return number ** exponent
   end
+
+  def associative (number_one, number_two)
+    return (number_one + number_two) - number_one
+  end
+
+  def log (number)
+    return Math.log10(number)
+  end
+
+  def sin(number)
+    return Math.sin(number)    
+  end
+
 end
 
 RSpec.describe Calculator do
@@ -67,6 +80,27 @@ RSpec.describe Calculator do
     it 'should return the power of number' do
       calculator = Calculator.new 
       expect(calculator.power(5, 3)).to eq(125)
+    end
+  end
+
+  describe '#associative' do
+    it 'should return the associative of two numbers' do
+      calculator = Calculator.new 
+      expect(calculator.associative(5, 3)).to eq(3)
+    end
+  end
+
+  describe '#log' do
+    it 'should return the log of number' do
+      calculator = Calculator.new 
+      expect(calculator.log(10).round).to eq(1)
+    end
+  end
+
+  describe '#sin' do
+    it 'should return the sin of number' do
+      calculator = Calculator.new 
+      expect(calculator.sin(90).round).to eq(1)
     end
   end
 
